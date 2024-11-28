@@ -32,7 +32,7 @@ function SignUp(){
                         <Input className="w-[300px] mt-1 mb-3"/>
                         <Button className="bg-blue-600 w-full">Continue</Button>
                     </div>
-                    <span></span>
+                    <span>No account?</span>
                 </form>
             </div>
         </div>
