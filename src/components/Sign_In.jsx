@@ -6,8 +6,8 @@ import { Button } from "./ui/button";
 function SignUp(){
     return(
         <div className="wrapper flex">
-            <div className="hero flex-1">
-                <img src="./laptop.jpg" alt="Hero image"/>
+            <div className="hero flex-1 h-screen">
+                <img className="w-full h-full bg-cover" src="./laptop.jpg" alt="Hero image"/>
             </div>
             <div className="sign_in_page flex-1 flex items-center justify-center h-screen">
                 <form className="shadow-xl p-6 rounded-xl">
