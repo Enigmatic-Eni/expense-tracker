@@ -27,7 +27,7 @@ export default function Home() {
             <h1>Manage your Expenses</h1>
             <h1 className="text-[#823BE3]">Control your Money</h1>
           </div>
-          <p className="font-bold mb-7">Start Creating your budget and save ton of money</p>
+          <p className="font-bold mb-7">Start Creating Your Budget and Save Ton of Money</p>
           <Button className=" bg-[#823BE3] text-white px-4 py-2 rounded font-semibold hover:bg-[#8f66c7]">
             Get Started
           </Button>
