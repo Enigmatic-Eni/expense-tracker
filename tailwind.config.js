@@ -16,6 +16,10 @@ module.exports = {
 
 			// made colors
 			'brand-color': "#823BE3",
+<<<<<<< HEAD
+=======
+			'text-color': "#6b7280",
+>>>>>>> 1c607b7f29081ff752b24ec65fc7da2d686ef134
 
   			card: {
   				DEFAULT: 'hsl(var(--card))',
