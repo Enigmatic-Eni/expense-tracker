@@ -4,6 +4,7 @@ export default function Navbar() {
     const currentUser = "Jerome"
 
   const initial = currentUser?.split(" ")?.map((n) => n[0])?.join("");
+  console.log("hello");
 
   return (
     <div className='shadow h-14 w-full flex items-center justify-between px-4'>
