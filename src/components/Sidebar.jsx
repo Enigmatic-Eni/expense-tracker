@@ -81,6 +81,7 @@ export default function Sidebar() {
         </div>
       </div>
 
+<div className=" relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed top-4  z-10 p-2 md:hidden"
@@ -89,9 +90,11 @@ export default function Sidebar() {
       </button>
 
       <div
+
         className={`flex ${
           isOpen ? "w-[15rem]" : "w-0"
         } transition-all duration-300 absolute bg-white overflow-hidden`}
+
       >
         <div className=" px-3 shadow w-[15rem] min-h-screen flex flex-col justify-between ">
           <div className=" ">
@@ -120,6 +123,7 @@ export default function Sidebar() {
             <p className=" text-text-color font-medium">Profile</p>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
