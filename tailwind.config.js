@@ -17,6 +17,7 @@ module.exports = {
 			// made colors
 			'brand-color': "#823BE3",
 			'text-color': "#6b7280",
+			'hover-color': '#8f66c7',
 
   			card: {
   				DEFAULT: 'hsl(var(--card))',

@@ -1,37 +1,47 @@
 import logo from "../assets/logo.png";
 import { MdOutlineDashboard } from "react-icons/md";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LuPiggyBank } from "react-icons/lu";
 import { RiFileListLine } from "react-icons/ri";
 import { GiUpgrade } from "react-icons/gi";
 import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
+import { Link, useLocation } from "react-router-dom";
+import Navbar from "./Navbar";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
+
+
 
   const links = [
     {
       name: "Dashboard",
       icon: <MdOutlineDashboard />,
-      path: ``,
+      path: `/Dashboard`,
     },
     {
       name: "Budget",
       icon: <LuPiggyBank />,
-      path: ``,
+      path: `/Budget`,
     },
     {
       name: "Expenses",
       icon: <RiFileListLine />,
-      path: ``,
+      path: `/Expenses`,
     },
     {
       name: "Upgrade",
       icon: <GiUpgrade />,
-      path: ``,
+      path: `/Upgrade`,
     },
   ];
+
+  const path = useLocation().pathname;
+
+  useEffect(()=>{
+    console.log(path)
+  })
 
   const currentUser = "Jerome";
 
@@ -42,7 +52,8 @@ export default function Sidebar() {
 
   return (
     <div className=" ">
-      <div className=" px-3 shadow w-[15rem] min-h-screen md:flex flex-col justify-between hidden ">
+ 
+      <div className=" px-3 shadow w-[15rem] min-h-screen lg:flex flex-col justify-between hidden ">
         <div className=" ">
           <div className="flex items-center gap-2 py-5">
             <img src={logo} alt="" className=" w-[20%]" />
@@ -51,12 +62,12 @@ export default function Sidebar() {
           <div className=" flex flex-col gap-5 px-4 pt-4">
             {links.map((items, index) => (
               <div key={index}>
-                <button
+                <Link to={items.path}
                   className={` flex items-center font-medium text-text-color gap-2 w-[90%] transition-all duration-500 ease-in-out py-3 pl-3 hover:bg-[#c2b2d9] hover:text-brand-color rounded-lg `}
                 >
                   <p>{items.icon}</p>
                   <p>{items.name}</p>
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -80,7 +91,7 @@ export default function Sidebar() {
       <div
         className={`flex ${
           isOpen ? "w-[15rem]" : "w-0"
-        } transition-all duration-300 overflow-hidden`}
+        } transition-all duration-300 absolute bg-white overflow-hidden`}
       >
         <div className=" px-3 shadow w-[15rem] min-h-screen flex flex-col justify-between ">
           <div className=" ">
@@ -89,16 +100,16 @@ export default function Sidebar() {
               <p className={`text-xl font-bold text-`}>DimeDiary</p>
             </div>
             <div className=" flex flex-col gap-5 px-4 pt-4">
-              {links.map((items, index) => (
-                <div key={index}>
-                  <button
-                    className={` flex items-center font-medium text-text-color gap-2 w-[90%] transition-all duration-500 ease-in-out py-3 pl-3 hover:bg-[#c2b2d9] hover:text-brand-color rounded-lg `}
-                  >
-                    <p>{items.icon}</p>
-                    <p>{items.name}</p>
-                  </button>
-                </div>
-              ))}
+            {links.map((items, index) => (
+              <div key={index}>
+                <Link to={items.path}
+                  className={` flex items-center font-medium text-text-color gap-2 w-[90%] transition-all duration-500 ease-in-out py-3 pl-3 hover:bg-[#c2b2d9] hover:text-brand-color rounded-lg `}
+                >
+                  <p>{items.icon}</p>
+                  <p>{items.name}</p>
+                </Link>
+              </div>
+            ))}
             </div>
           </div>
 
