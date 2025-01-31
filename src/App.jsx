@@ -1,32 +1,32 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
-import Home from './pages/Home'; // Adjust imports based on your actual file structure
-import Budget from './pages/Budgets';
-import Expenses from './pages/Expenses';
-import Upgrade from './pages/Upgrade';
-import Navbar from './components/Navbar';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import SignIn from './components/Sign_In';
+import SignUp from './components/Sign_Up';
+import Main from './components/Body';
+import Budgets from './pages/Budgets';
+
 import Dashboard from './pages/Dashboard';
+import Layout from './components/Layout';
 
 function App() {
+  const user = localStorage.getItem("token")
   return (
-    <Router>
-      <div className="flex h-screen">
-        <Sidebar />
-        <div className=' flex flex-col flex-grow'>
-          <Navbar />
-        <div className=" flex-grow p-4 overflow-auto"> {/* Content area */}
-          <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/budget" element={<Budget />} />
-            <Route path="/expenses" element={<Expenses />} />
-            <Route path="/upgrade" element={<Upgrade />} />
-          </Routes>
-        </div>
-      </div>
-      </div>
-    </Router>
+    <Routes>
+      {/* <Route path="/" element={<Home />} />
+      <Route path='/sign_in' element={<SignIn />} />
+      <Route path='/sign_up' element={<SignUp />} /> */}
+     
+      <Route path="/" element={<Layout />}>
+      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="budgets" element={<Budgets />} />
+  </Route>
+      
+      
+       
+    
+
+    </Routes>
   );
 }
 

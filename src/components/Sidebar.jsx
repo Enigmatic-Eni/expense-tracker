@@ -23,7 +23,7 @@ export default function Sidebar() {
     {
       name: "Budget",
       icon: <LuPiggyBank />,
-      path: `/Budget`,
+      path: `/Budgets`,
     },
     {
       name: "Expenses",
@@ -84,23 +84,24 @@ export default function Sidebar() {
 <div className=" relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4  z-10 p-2 md:hidden"
+        className="fixed left-7 top-4  z-10 p-2 lg:hidden"
       >
         {isOpen ? <MdClose size={24} /> : <FiMenu size={24} />}
       </button>
 
       <div
 
-        className={`flex ${
-          isOpen ? "w-[15rem]" : "w-0"
-        } transition-all duration-300 absolute bg-white overflow-hidden`}
+        className={`flex flex-col ${
+          isOpen ? "w-[15rem] " : "w-20 shadow"
+        } transition-all duration-300  bg-white relative  overflow-hidden`}
 
       >
         <div className=" px-3 shadow w-[15rem] min-h-screen flex flex-col justify-between ">
           <div className=" ">
-            <div className="flex items-center gap-2 py-5 pl-6">
-              <img src={logo} alt="" className=" w-[20%]" />
-              <p className={`text-xl font-bold text-`}>DimeDiary</p>
+            <div className="flex items-center gap-2 py-5 pl-12">
+              {isOpen &&<img src={logo} alt="" className=" w-[20%]" />}
+    
+              {isOpen && <p className={`text-xl font-bold text-`}>DimeDiary</p>}
             </div>
             <div className=" flex flex-col gap-5 px-4 pt-4">
             {links.map((items, index) => (
@@ -109,7 +110,7 @@ export default function Sidebar() {
                   className={` flex items-center font-medium text-text-color gap-2 w-[90%] transition-all duration-500 ease-in-out py-3 pl-3 hover:bg-[#c2b2d9] hover:text-brand-color rounded-lg `}
                 >
                   <p>{items.icon}</p>
-                  <p>{items.name}</p>
+                  {isOpen && <span>{items.name}</span>}
                 </Link>
               </div>
             ))}
@@ -120,7 +121,7 @@ export default function Sidebar() {
             <div className=" bg-brand-color w-6 items-center text-center rounded-full text-white font-bold">
               {initial}
             </div>
-            <p className=" text-text-color font-medium">Profile</p>
+           {isOpen && <p className=" text-text-color font-medium">Profile</p>}
           </div>
         </div>
       </div>
